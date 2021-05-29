@@ -56,7 +56,7 @@ export default function Home({ posts }) {
 
 export const getServerSideProps = async (pageContext) => {
   const query = encodeURIComponent('*[_type == "post" ]');
-  const url = `https://0zx12v6s.api.sanity.io/v1/data/query/production?query=${query}`;
+  const url = `https://jehiv4pg.api.sanity.io/v1/data/query/production?query=${query}`;
   const result = await fetch(url).then((res) => res.json());
   if (!result.result || !result.result.length) {
     return {
