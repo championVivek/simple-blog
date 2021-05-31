@@ -24,6 +24,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 700px) {
+     align-items: flex-start;
+     justify-content: flex-start;
+  }
 `;
 
 const BlogTitle = styled.h3`
@@ -56,7 +61,6 @@ const BlogContent = styled.div`
   font-size: 23px;
   text-indent: 45px;
   line-height: 1.5;
-  text-align: justify;
   letter-spacing: 1.5px;
 
   @media (max-width: 700px) {

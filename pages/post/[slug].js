@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Head from "next/head"
+import Head from "next/head";
 import BlogDetails from "../../components/BlogDetails/BlogDetails";
 import Banner from "../../components/Banner/Banner";
 import imageUrlBuilder from "@sanity/image-url";
@@ -18,15 +18,11 @@ export default function BlogPage({ title, body, image }) {
 
   return (
     <>
-    <Head>
-      <title>{title}</title>
-    </Head>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Banner ThisIsBlog />
-      <BlogDetails
-        blogTitle={title}
-        blogImage={imageUrl}
-        body={body}
-      />
+      <BlogDetails blogTitle={title} blogImage={imageUrl} body={body} />
     </>
   );
 }

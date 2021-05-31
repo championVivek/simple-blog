@@ -41,7 +41,7 @@ export const Overlay = styled.div`
 `;
 
 export const BannerData = styled.div`
-  padding-left: 100px;
+  padding-left: 20px;
   margin-right: auto;
   display: flex;
   height: 100vh;
@@ -70,7 +70,7 @@ export const BannerData = styled.div`
   }
 
   @media (min-width: 701px) and (max-width: 1024px) {
-    padding-left: 150px;
+    padding-left: 10px;
     align-items: flex-start;
   }
 `;

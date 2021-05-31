@@ -160,7 +160,6 @@ export const News = styled.div`
 export const NewsCard = styled.div`
   display: flex;
   align-items: center;
-
 `;
 
 export const NewsLink = styled.div`
