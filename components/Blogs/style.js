@@ -50,7 +50,7 @@ export const Title = styled.div`
   height: 220px;
 
   > a {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 1.3;
     color: #000;
     font-family: "Noto Sans KR", sans-serif;
