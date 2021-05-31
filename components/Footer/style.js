@@ -161,9 +161,6 @@ export const NewsCard = styled.div`
   display: flex;
   align-items: center;
 
-  @media (min-width: 701px) and (max-width: 1024px) {
-    flex-direction: column;
-  }
 `;
 
 export const NewsLink = styled.div`
