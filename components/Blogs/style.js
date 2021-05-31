@@ -10,6 +10,16 @@ export const Container = styled.div`
   margin-top: 90px;
   margin-right: auto;
   margin-left: auto;
+
+  @media (max-width: 700px) {
+    margin: 50px 10px;
+    height: fit-content;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    margin: 50px 10px;
+    height: fit-content;
+  }
 `;
 
 export const Image = styled.div`
@@ -22,11 +32,28 @@ export const Image = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const Blog = styled.div`
   display: flex;
   height: 100%;
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    display: flex;
+  }
 `;
 
 export const Type = styled.h3`
@@ -43,6 +70,18 @@ export const Details = styled.div`
   flex-direction: column;
   width: 35%;
   cursor: pointer;
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const Title = styled.div`
@@ -60,6 +99,19 @@ export const Title = styled.div`
   ${Details}:hover & > a {
     transition: 0.3s all ease;
     color: rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 700px) {
+   height: fit-content;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    height: fit-content;
+
+    > a {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
   }
 `;
 
@@ -95,6 +147,14 @@ export const Social = styled.div`
     padding-bottom: 20px;
     opacity: 1;
     transition: 0.5s all ease;
+  }
+
+  @media (max-width: 700px) {
+    opacity: 1;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    opacity: 1;
   }
 `;
 

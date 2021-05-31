@@ -40,7 +40,7 @@ export default function Footer() {
             </S.Social>
           </S.Brand>
           <S.News>
-            <S.Title>latest News</S.Title>
+            <S.Title>Latest News</S.Title>
             <S.NewsCard>
               <Image src="/images/car.jpeg" height={180} width={180} />
               <S.NewsLink>

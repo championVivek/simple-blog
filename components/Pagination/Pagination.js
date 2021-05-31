@@ -34,15 +34,20 @@ export default function Pagination() {
 }
 
 const Container = styled.div`
-  display: grid;
-  place-items: center;
-  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
 `;
 
 const Page = styled.ul`
   display: flex;
   list-style-type: none;
   cursor: pointer;
+
+  @media (max-width: 700px) {
+    margin-left: -25px;
+  }
 `;
 
 const PageNumber = styled.li`
@@ -58,7 +63,6 @@ const PageNumber = styled.li`
     border-radius: 50%;
     border: 1px solid #e6e6e6;
   }
-
   span:hover {
     transition: 0.3s all ease;
     background-color: #ffd369;

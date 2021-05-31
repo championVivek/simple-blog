@@ -28,9 +28,17 @@ const Container = styled.div`
 
 const BlogTitle = styled.h3`
   font-family: "Rubik", sans-serif;
-  font-size: 50px;
+  font-size: 40px;
   text-transform: uppercase;
   padding: 20px;
+
+  @media (max-width: 700px) {
+    font-size: 22px;
+  }
+
+  @media (min-width: 701px) and (max-width: 1024px) {
+    font-size: 30px;
+  }
 `;
 
 const BlogImage = styled.div`
@@ -45,9 +53,14 @@ const BlogImage = styled.div`
 const BlogContent = styled.div`
   max-width: 70%;
   font-family: "Roboto", sans-serif;
-  font-size: 24px;
+  font-size: 23px;
   text-indent: 45px;
   line-height: 1.5;
   text-align: justify;
   letter-spacing: 1.5px;
+
+  @media (max-width: 700px) {
+    font-size: 20px;
+    max-width: 90%;
+  }
 `;
