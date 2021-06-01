@@ -167,6 +167,7 @@ export const Time = styled.div`
   > span {
     border-left: 3px solid lightgray;
     height: 20px;
+    margin: 0 5px;
   }
 
   ${Details}:hover & {

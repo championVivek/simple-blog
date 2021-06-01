@@ -9,7 +9,7 @@ export default function BlogPage({ title, body, image }) {
 
   useEffect(() => {
     const imageBuilder = imageUrlBuilder({
-      projectId: "0zx12v6s",
+      projectId: "jehiv4pg",
       dataset: "production",
     });
 

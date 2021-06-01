@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import styled, { css } from "styled-components";
 
@@ -7,8 +8,17 @@ export default function Pagination({
   pageLimit,
   dataLimit,
 }) {
-  const [pages] = useState(Math.ceil(data.length / dataLimit));
+  const [pages, setPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    handlePages();
+  }, [data]);
+
+  const handlePages = () => {
+    const page = Math.ceil(data.length / dataLimit);
+    setPages(page);
+  };
 
   function goToNextPage() {
     setCurrentPage((page) => page + 1);
@@ -31,9 +41,9 @@ export default function Pagination({
 
   const getPaginationGroup = () => {
     let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
-    return new Array(pageLimit).fill().map((_, idx) => start + idx + 1)
+    return new Array(pageLimit).fill().map((_, idx) => start + idx + 1);
   };
-  console.log(pages);
+
   return (
     <>
       {!data.length ? (
@@ -43,10 +53,10 @@ export default function Pagination({
           <RenderComponent
             key={index}
             image={post.mainImage}
-            type="illustration"
+            type={post.type}
             title={post.title}
             date={post.publishedAt}
-            readingTime="12 min read"
+            readingTime={post.readingTime}
           />
         ))
       )}

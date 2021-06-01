@@ -11,7 +11,7 @@ export default function Home({ posts }) {
   useEffect(() => {
     if (posts.length) {
       const imageBuilder = imageUrlBuilder({
-        projectId: "0zx12v6s",
+        projectId: "jehiv4pg",
         dataset: "production",
       });
 
