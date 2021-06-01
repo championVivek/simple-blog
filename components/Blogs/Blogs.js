@@ -4,19 +4,19 @@ import {
   faFacebookF,
 } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-import * as S from "./style"
+import * as S from "./style";
 import moment from "moment";
 
 export default function Blogs({ image, type, title, date, readingTime }) {
   var fomatedDate = moment(date).format("DD-MM-YYYY");
-  
+
   return (
     <>
       <S.Container>
         <S.Blog>
           {image && (
             <S.Image>
-              <Link href={`/post/${title.toLowerCase().replace(/\s+/g, '-')}`}>
+              <Link href={`/post/${title.toLowerCase().replace(/\s+/g, "-")}`}>
                 <a>
                   <img src={image} alt={title} />
                 </a>
@@ -25,7 +25,7 @@ export default function Blogs({ image, type, title, date, readingTime }) {
           )}
           <S.Details>
             <S.Type>{type}</S.Type>
-            <Link href={`/post/${title.toLowerCase().replace(/\s+/g, '-')}`}>
+            <Link href={`/post/${title.toLowerCase().replace(/\s+/g, "-")}`}>
               <S.Title>
                 <a>{title}</a>
               </S.Title>
@@ -50,4 +50,3 @@ export default function Blogs({ image, type, title, date, readingTime }) {
     </>
   );
 }
-

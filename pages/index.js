@@ -3,7 +3,7 @@ import Head from "next/head";
 import Banner from "../components/Banner/Banner";
 import Blogs from "../components/Blogs/Blogs";
 import imageUrlBuilder from "@sanity/image-url";
-import Pagination from "../components/Pagination/Pagination";
+import Paginations from "../components/Pagination/Pagination";
 
 export default function Home({ posts }) {
   const [mappedPosts, setMappedPosts] = useState("");
@@ -35,22 +35,12 @@ export default function Home({ posts }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Banner />
-      {!mappedPosts.length ? (
-        <>No posts</>
-      ) : (
-        mappedPosts.map((post, index) => (
-          <Blogs
-            key={index}
-            image={post.mainImage}
-            type="illustration"
-            title={post.title}
-            date={post.publishedAt}
-            readingTime="12 min read"
-          />
-        ))
-      )}
-
-      <Pagination />
+      <Paginations
+        data={mappedPosts}
+        RenderComponent={Blogs}
+        pageLimit={3}
+        dataLimit={4}
+      />
     </div>
   );
 }

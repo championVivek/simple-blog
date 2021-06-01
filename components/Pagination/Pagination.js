@@ -1,32 +1,77 @@
-import styled from "styled-components";
+import { useState } from "react";
+import styled, { css } from "styled-components";
 
-export default function Pagination() {
+export default function Pagination({
+  data,
+  RenderComponent,
+  pageLimit,
+  dataLimit,
+}) {
+  const [pages] = useState(Math.ceil(data.length / dataLimit));
+  const [currentPage, setCurrentPage] = useState(1);
+
+  function goToNextPage() {
+    setCurrentPage((page) => page + 1);
+  }
+
+  function goToPreviousPage() {
+    setCurrentPage((page) => page - 1);
+  }
+
+  function changePage(event) {
+    const pageNumber = Number(event.target.textContent);
+    setCurrentPage(pageNumber);
+  }
+
+  const getPaginatedData = () => {
+    const startIndex = currentPage * dataLimit - dataLimit;
+    const endIndex = startIndex + dataLimit;
+    return data.slice(startIndex, endIndex);
+  };
+
+  const getPaginationGroup = () => {
+    let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
+    return new Array(pageLimit).fill().map((_, idx) => start + idx + 1)
+  };
+  console.log(pages);
   return (
     <>
+      {!data.length ? (
+        <>No posts</>
+      ) : (
+        getPaginatedData().map((post, index) => (
+          <RenderComponent
+            key={index}
+            image={post.mainImage}
+            type="illustration"
+            title={post.title}
+            date={post.publishedAt}
+            readingTime="12 min read"
+          />
+        ))
+      )}
       <Container>
         <Page>
-          <PageNumber>
+          <PagePrev onClick={goToPreviousPage} currentPage={currentPage}>
             <span>&#60;</span>
-          </PageNumber>
-          <PageNumber>
-            <span style={{ backgroundColor: "#ffd369", color: "white" }}>
-              1
-            </span>
-          </PageNumber>
-          <PageNumber>
-            <span>2</span>
-          </PageNumber>
-
-          <PageNumber>
-            <span>3</span>
-          </PageNumber>
-
-          <PageNumber>
-            <span>4</span>
-          </PageNumber>
-          <PageNumber>
+          </PagePrev>
+          {getPaginationGroup().map((item, index) => (
+            <PageNumber
+              key={index}
+              onClick={changePage}
+              item={item}
+              currentPage={currentPage}
+            >
+              <span>{item}</span>
+            </PageNumber>
+          ))}
+          <PageNext
+            onClick={goToNextPage}
+            pages={pages}
+            currentPage={currentPage}
+          >
             <span>&#62;</span>
-          </PageNumber>
+          </PageNext>
         </Page>
       </Container>
     </>
@@ -50,10 +95,63 @@ const Page = styled.ul`
   }
 `;
 
+const PagePrev = styled.li`
+  margin-left: 5px;
+
+  ${(props) =>
+    props.currentPage === 1 &&
+    css`
+      pointer-events: none;
+      opacity: 0.5;
+    `};
+  > span {
+    color: gray;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e6e6e6;
+  }
+  span:hover {
+    transition: 0.3s all ease;
+    background-color: #ffd369;
+    color: #fff;
+  }
+`;
+
+const PageNext = styled.li`
+  margin-left: 5px;
+
+  pointer-events: ${(props) =>
+    props.currentPage === props.pages ? "none" : "auto"};
+
+  opacity: ${(props) => (props.currentPage === props.pages ? "0.5" : "1")};
+
+  > span {
+    color: gray;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e6e6e6;
+  }
+  span:hover {
+    transition: 0.3s all ease;
+    background-color: #ffd369;
+    color: #fff;
+  }
+`;
+
 const PageNumber = styled.li`
   margin-left: 5px;
 
   > span {
+    background-color: ${(props) =>
+      props.currentPage === props.item ? "#ffd369" : "white"};
     color: gray;
     text-align: center;
     display: inline-block;

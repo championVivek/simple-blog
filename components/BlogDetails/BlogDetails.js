@@ -6,7 +6,7 @@ export default function BlogPage({ blogTitle, blogImage, body }) {
     <>
       <Container>
         <BlogImage>
-          <img src={blogImage} alt="" />
+          <img src={blogImage} alt={blogTitle} />
         </BlogImage>
         <BlogTitle>{blogTitle}</BlogTitle>
         <BlogContent>
@@ -26,8 +26,8 @@ const Container = styled.div`
   justify-content: center;
 
   @media (max-width: 700px) {
-     align-items: flex-start;
-     justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 `;
 
